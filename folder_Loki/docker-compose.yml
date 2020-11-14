@@ -1,0 +1,38 @@
+  
+version: '3'
+services:
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD: "root"
+            - MYSQL_USER: "symfony"
+            - MYSQL_PASSWORD: "symfony"
+            - MYSQL_DATABASE: "symfony"
+
+    maildev:
+        image: djfarrelly/maildev
+        ports:
+          - "8002:80"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+        environment:
+          PMA_HOST: db
+
+    php:
+        image: php:fpm-alpine
+        ports:
+            - "8100:80"
+        container_name: web-php
+        build: ./src 
+        volumes:
+            - "./src:/src"
+        links: 
+            - db
