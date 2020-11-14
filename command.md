@@ -1,5 +1,6 @@
 - ```docker ps``` liste les containers sur la machine
 - ```docker images -a```
+- ```docker image ls```
 - ```docker ps -a``` , voir tout les containers meme ceux eteint
 - ```docker inspect nom_container``` fournit les information nécessaire 
 ## container alpine
@@ -45,3 +46,21 @@ pour supprimer le volume: rdocker rm monVolume
     - message erreur : il faut un id
 - docker rm -f web
 - docker volume rm monVolume
+
+## crée une image avec container
+
+
+## crée une image avec dockerfile
+- c'est qui dockerfile :
+    - fichier de configuration
+    - objectif création d'image
+    - sequence d'instructions
+
+- l'interet de dockerfile : 
+    - relancer création d'image 
+    - meilleur visibilté sur ce qui est fait
+    - partage facile
+    - script d'edition
+
+un exemple ce trouve dans le dossier ubuntu
+- puis taper la command :  docker build -t monimage:v1.0 .
