@@ -9,7 +9,7 @@ docker images
 # chercher une images 
 docker search <terme a chercher>
 # récuperer une image
-docker pull <nom de l'image>
+docker pull nom de l'image
 # supprimer une image
 docker rmi <nom ou id de l'image>
 #crée une image a partur d'un dockerfile
